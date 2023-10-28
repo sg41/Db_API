@@ -1,0 +1,16 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    hostname: app
+  db:
+    image: redis
+    hostname: redis
+    ports:
+      - 16379:6379
